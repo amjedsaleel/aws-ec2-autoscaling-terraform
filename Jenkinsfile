@@ -21,7 +21,7 @@ pipeline {
 
        stage('Terraform init') {
             steps {
-                withAWS(credentials: 'aws-personal', profile: 'personal', region: 'ap-south-1') {
+                withAWS(credentials: 'aws-personal', region: 'ap-south-1') {
                     sh '${TF_HOME}/terraform init -no-color'
                 }
             }
