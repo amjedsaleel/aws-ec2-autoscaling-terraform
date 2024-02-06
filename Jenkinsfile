@@ -38,7 +38,9 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh '${TF_HOME}/terraform apply -auto-approve -no-color'
+                withAWS(credentials: 'aws-personal', region: 'ap-south-1') {
+                    sh '${TF_HOME}/terraform apply -auto-approve -no-color'
+                }
             }
         } 
     }
