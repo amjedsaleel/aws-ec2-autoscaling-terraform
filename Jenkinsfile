@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         TF_HOME = tool 'terraform-1.7.2-linux'
-        AWS_PROFILE="personal"
+        // AWS_PROFILE="personal"
     }
 
     stages {
@@ -21,7 +21,9 @@ pipeline {
 
        stage('Terraform init') {
             steps {
-                sh '${TF_HOME}/terraform init -no-color'
+                withAWS(credentials: 'aws-personal', profile: 'personal', region: 'ap-south-1') {
+                    sh '${TF_HOME}/terraform init -no-color'
+                }
             }
         }
 
