@@ -21,13 +21,13 @@ pipeline {
 
        stage('Terraform init') {
             steps {
-                sh '${TF_HOME}/terraform init'
+                sh '${TF_HOME}/terraform init -no-color'
             }
         }
 
        stage('Terraform validate') {
             steps {
-                sh '${TF_HOME}/terraform validate'
+                sh '${TF_HOME}/terraform validate -no-color'
             }
         } 
 
@@ -36,7 +36,7 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh '${TF_HOME}/terraform apply -auto-approve'
+                sh '${TF_HOME}/terraform apply -auto-approve -no-color'
             }
         } 
     }
