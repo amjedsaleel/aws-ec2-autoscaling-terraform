@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         TF_HOME = tool 'terraform-1.7.2-linux'
+        AWS_PROFILE="personal"
     }
 
     stages {
