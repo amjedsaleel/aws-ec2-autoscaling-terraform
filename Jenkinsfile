@@ -33,15 +33,15 @@ pipeline {
             }
         } 
 
-       stage('Terraform apply') {
-            when {
-                branch 'main'
-            }
-            steps {
-                withAWS(credentials: 'aws-personal', region: 'ap-south-1') {
-                    sh '${TF_HOME}/terraform apply -auto-approve -no-color'
-                }
-            }
-        } 
+    //    stage('Terraform apply') {
+    //         when {
+    //             branch 'main'
+    //         }
+    //         steps {
+    //             withAWS(credentials: 'aws-personal', region: 'ap-south-1') {
+    //                 sh '${TF_HOME}/terraform apply -auto-approve -no-color'
+    //             }
+    //         }
+    //     } 
     }
 }
